@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  stripe-checkout-session-api:
+    image: andresabadia/stripe-checkout-session-api
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
