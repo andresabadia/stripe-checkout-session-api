@@ -9,7 +9,7 @@ API to selfhost the stripe checkout session. Use this together with the [Stripe 
 Use the [docker image](https://hub.docker.com/r/andresabadia/stripe-checkout-session-api) to run host the application with Docker.
 
 ```bash
-$ docker run andresabadia/stripe-checkout-session-api
+$ docker run andresabadia/stripe-checkout-session-api -p 3000:3000
 ```
 
 or use the `docker-compose.yml` to run. Don't forget to create the `.env` files with the enviroment variables.
