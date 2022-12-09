@@ -9,7 +9,7 @@ export class AppService {
   });
 
   getHello(): string {
-    return 'Stripe Checkout Session API';
+    return `Stripe Checkout Session API - ${process.env.npm_package_version}`;
   }
 
   async createSessionURL(body: PaymentDetail) {
