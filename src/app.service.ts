@@ -14,6 +14,13 @@ export class AppService {
 
   async createSessionURL(body: PaymentDetail) {
     const YOUR_DOMAIN = 'http://localhost:4242';
+    // create costumer on stripe
+    const costumer = await this.stripe.customers.create({
+      name: body.customerName,
+      email: body.customerEmail,
+      address: { line1: body.customerAddress },
+    });
+
     const session = await this.stripe.checkout.sessions.create({
       line_items: [
         {
@@ -22,8 +29,8 @@ export class AppService {
           quantity: 1,
         },
       ],
+      customer: costumer.id,
       mode: body.mode || 'payment',
-      customer_email: body.customerEmail,
       metadata: {
         customer_name: body.customerName,
         customer_address: body.customerAddress,
