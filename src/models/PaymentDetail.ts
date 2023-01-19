@@ -6,4 +6,5 @@ export interface PaymentDetail {
   customerEmail?: string;
   customerName?: string;
   customerAddress?: string;
+  billingAddressCollection?: string;
 }

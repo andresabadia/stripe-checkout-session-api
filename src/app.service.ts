@@ -35,6 +35,11 @@ export class AppService {
         customer_name: body.customerName,
         customer_address: body.customerAddress,
       },
+      billing_address_collection: process.env.BILLING_ADDRESS_COLLECTION
+        ? 'required'
+        : body.billingAddressCollection === 'required'
+        ? 'required'
+        : 'auto',
       success_url: process.env.SUCCESS_URL || `${YOUR_DOMAIN}/success.html`,
       cancel_url: process.env.CANCEL_URL || `${YOUR_DOMAIN}/cancel.html`,
     });
